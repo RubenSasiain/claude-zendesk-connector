@@ -81,11 +81,7 @@ claude mcp list
 
 o, dentro de una sesión de Claude Code, con el comando `/mcp`.
 
-### 5. Probar
-
-Pregúntale a Claude algo como: *"Trae el ticket 12345 de Zendesk"*, *"Busca tickets abiertos de fulano@cliente.com"* o *"Busca en el Help Center artículos sobre restablecer contraseña"*. Claude debería invocar la herramienta correspondiente automáticamente y mostrarte el resultado.
-
 ## Notas
 
-- Las credenciales quedan solo en tu `claude_desktop_config.json` local (o en la config de Claude Code) — no se suben a ningún servidor. Trátalos como archivos sensibles.
-- `.env` / `.env.example` documentan las variables necesarias por si quieres probar el servidor suelto con `python server.py` y un cliente MCP de prueba (p. ej. `mcp dev server.py`), pero no hace falta para el uso normal — las variables reales van en la config de Claude.
+- Las credenciales quedan solo en tu `claude_desktop_config.json` local (o en la config de Claude Code) — no se suben a ningún servidor.
+- `.env` / `.env.example` documentan las variables necesarias para probar el servidor suelto con `python server.py` y un cliente MCP de prueba (p. ej. `mcp dev server.py`), pero no hace falta para el uso normal — las variables reales van en la config de Claude.
