@@ -14,7 +14,7 @@ Expone cuatro herramientas:
 ### 1. Instalar dependencias
 
 ```bash
-cd "C:\Users\ruben\OneDrive\Escritorio\eXpand\Claude Connectors\zendesk-connector"
+cd "C:\Users\<Username>\Ruta\Al\Conector\"
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
