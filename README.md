@@ -43,9 +43,9 @@ Anota también:
    {
      "mcpServers": {
        "zendesk": {
-         "command": "C:\\Users\\ruben\\OneDrive\\Escritorio\\eXpand\\Claude Connectors\\zendesk-connector\\.venv\\Scripts\\python.exe",
+         "command": "C:\\Users\\<Username>\\Ruta\\Al\connector\\.venv\\Scripts\\python.exe",
          "args": [
-           "C:\\Users\\ruben\\OneDrive\\Escritorio\\eXpand\\Claude Connectors\\zendesk-connector\\server.py"
+           "C:\\Users\\\\Users\\<Username>\\Ruta\\Al\connector\\server.py"
          ],
          "env": {
            "ZENDESK_SUBDOMAIN": "tu-subdominio",
@@ -70,7 +70,7 @@ claude mcp add zendesk \
   --env ZENDESK_SUBDOMAIN=tu-subdominio \
   --env ZENDESK_EMAIL=tu-email@empresa.com \
   --env ZENDESK_API_TOKEN=tu-token \
-  -- "C:\Users\ruben\OneDrive\Escritorio\eXpand\Claude Connectors\zendesk-connector\.venv\Scripts\python.exe" "C:\Users\ruben\OneDrive\Escritorio\eXpand\Claude Connectors\zendesk-connector\server.py"
+  -- "C:\Users\<Username>\Ruta\Al\Conector\.venv\Scripts\python.exe" "C:\Users\<Username>\Ruta\Al\Conector\server.py"
 ```
 
 Esto guarda la configuración (por defecto, a nivel usuario, disponible en todos tus proyectos). Verifica con:
