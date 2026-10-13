@@ -14,7 +14,7 @@ Expone cuatro herramientas:
 ### 1. Instalar dependencias
 
 ```bash
-cd "C:\Users\ruben\OneDrive\Escritorio\eXpand\Claude Connectors\zendesk-connector"
+cd "C:\Users\<Username>\Ruta\Al\Conector\"
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
@@ -43,9 +43,9 @@ Anota también:
    {
      "mcpServers": {
        "zendesk": {
-         "command": "C:\\Users\\ruben\\OneDrive\\Escritorio\\eXpand\\Claude Connectors\\zendesk-connector\\.venv\\Scripts\\python.exe",
+         "command": "C:\\Users\\<Username>\\Ruta\\Al\connector\\.venv\\Scripts\\python.exe",
          "args": [
-           "C:\\Users\\ruben\\OneDrive\\Escritorio\\eXpand\\Claude Connectors\\zendesk-connector\\server.py"
+           "C:\\Users\\\\Users\\<Username>\\Ruta\\Al\connector\\server.py"
          ],
          "env": {
            "ZENDESK_SUBDOMAIN": "tu-subdominio",
@@ -70,7 +70,7 @@ claude mcp add zendesk \
   --env ZENDESK_SUBDOMAIN=tu-subdominio \
   --env ZENDESK_EMAIL=tu-email@empresa.com \
   --env ZENDESK_API_TOKEN=tu-token \
-  -- "C:\Users\ruben\OneDrive\Escritorio\eXpand\Claude Connectors\zendesk-connector\.venv\Scripts\python.exe" "C:\Users\ruben\OneDrive\Escritorio\eXpand\Claude Connectors\zendesk-connector\server.py"
+  -- "C:\Users\<Username>\Ruta\Al\Conector\.venv\Scripts\python.exe" "C:\Users\<Username>\Ruta\Al\Conector\server.py"
 ```
 
 Esto guarda la configuración (por defecto, a nivel usuario, disponible en todos tus proyectos). Verifica con:
@@ -81,11 +81,7 @@ claude mcp list
 
 o, dentro de una sesión de Claude Code, con el comando `/mcp`.
 
-### 5. Probar
-
-Pregúntale a Claude algo como: *"Trae el ticket 12345 de Zendesk"*, *"Busca tickets abiertos de fulano@cliente.com"* o *"Busca en el Help Center artículos sobre restablecer contraseña"*. Claude debería invocar la herramienta correspondiente automáticamente y mostrarte el resultado.
-
 ## Notas
 
-- Las credenciales quedan solo en tu `claude_desktop_config.json` local (o en la config de Claude Code) — no se suben a ningún servidor. Trátalos como archivos sensibles.
-- `.env` / `.env.example` documentan las variables necesarias por si quieres probar el servidor suelto con `python server.py` y un cliente MCP de prueba (p. ej. `mcp dev server.py`), pero no hace falta para el uso normal — las variables reales van en la config de Claude.
+- Las credenciales quedan solo en tu `claude_desktop_config.json` local (o en la config de Claude Code) — no se suben a ningún servidor.
+- `.env` / `.env.example` documentan las variables necesarias para probar el servidor suelto con `python server.py` y un cliente MCP de prueba (p. ej. `mcp dev server.py`), pero no hace falta para el uso normal — las variables reales van en la config de Claude.
