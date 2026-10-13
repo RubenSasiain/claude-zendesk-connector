@@ -140,5 +140,51 @@ async def get_help_center_article(article_id: int) -> dict:
     }
 
 
+@mcp.tool()
+async def get_organization(
+    organization_name: str, max_members: int = 50, max_tickets: int = 20
+) -> dict:
+    """Look up a Zendesk organization by name and return its ID, its members
+    and its most recent tickets (brief summaries, newest first). Use
+    get_ticket(id) to pull the full thread of one ticket, or search_tickets
+    with organization:"<name>" to go beyond the recent ones returned here.
+
+    The name is matched as a prefix (case-insensitive). If several
+    organizations match, this fails listing the candidates: ask the user
+    which one they mean instead of guessing.
+
+    Args:
+        organization_name: Name (or start of the name) of the organization.
+        max_members: Maximum members to return (default 50, max 100).
+        max_tickets: Maximum recent tickets to return (default 20, max 100).
+    """
+    org = await zd.fetch_organization_info(organization_name, max_members, max_tickets)
+    return {
+        "id": org["id"],
+        "name": org["name"],
+        "members_total": org["users_total"],
+        "members": [
+            {
+                "id": u["id"],
+                "name": u.get("name"),
+                "email": u.get("email"),
+                "role": u.get("role"),
+            }
+            for u in org["users"]
+        ],
+        "tickets_total": org["tickets_total"],
+        "tickets": [
+            {
+                "id": t["id"],
+                "subject": t.get("subject"),
+                "status": t.get("status"),
+                "priority": t.get("priority"),
+                "updated_at": t.get("updated_at"),
+            }
+            for t in org["tickets"]
+        ],
+    }
+
+
 if __name__ == "__main__":
     mcp.run(transport="stdio")
